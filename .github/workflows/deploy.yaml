@@ -63,19 +63,3 @@ jobs:
           git add argocd/deployment/demo-java-app-deployment.yaml
           git commit -m "Update image version to ${{ github.sha }} [skip ci]"
           git push origin main
-
-#  sync:
-#    needs: deploy
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Install Argo CD CLI
-#        run: curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 && chmod +x /usr/local/bin/argocd
-#
-#      - name: Sync Argo CD Application
-#        run: |
-#          argocd login https://a214-2a02-8428-688-7101-6949-ba28-a223-69b5.ngrok-free.app --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_TOKEN }} --insecure
-#          argocd app sync java-app
-#        env:
-#          ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
-#          ARGOCD_USERNAME: ${{ secrets.ARGOCD_USERNAME }}
-#          ARGOCD_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
