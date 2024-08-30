@@ -48,6 +48,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
@@ -67,10 +68,14 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Install Argo CD CLI
+        run: curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 && chmod +x /usr/local/bin/argocd
+
       - name: Sync Argo CD Application
         run: |
-          argocd login ${{ secrets.ARGOCD_SERVER }} --username admin --password ${{ secrets.ARGOCD_TOKEN }} --insecure
+          argocd login ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_TOKEN }} --insecure
           argocd app sync java-app
         env:
           ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
+          ARGOCD_USERNAME: ${{ secrets.ARGOCD_USERNAME }}
           ARGOCD_TOKEN: ${{ secrets.ARGOCD_TOKEN }}
