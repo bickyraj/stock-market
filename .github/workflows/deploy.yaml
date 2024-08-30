@@ -61,7 +61,7 @@ jobs:
           git config --global user.email "bickyrajkayastha@gmail.com"
           git config --global user.name "bickyraj"
           git add argocd/deployment/demo-java-app-deployment.yaml
-          git commit -m "Update image version to ${{ github.sha }}"
+          git commit -m "Update image version to ${{ github.sha }} [skip ci]"
           git push origin main
 
   sync:
