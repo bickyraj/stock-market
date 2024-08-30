@@ -73,7 +73,7 @@ jobs:
 
       - name: Sync Argo CD Application
         run: |
-          argocd login ${{ secrets.ARGOCD_SERVER }} --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_TOKEN }} --insecure
+          argocd login https://a214-2a02-8428-688-7101-6949-ba28-a223-69b5.ngrok-free.app --username ${{ secrets.ARGOCD_USERNAME }} --password ${{ secrets.ARGOCD_TOKEN }} --insecure
           argocd app sync java-app
         env:
           ARGOCD_SERVER: ${{ secrets.ARGOCD_SERVER }}
