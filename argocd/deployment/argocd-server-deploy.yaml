@@ -22,4 +22,4 @@ spec:
             - containerPort: 8080     # Make sure this port matches the targetPort in your service
           command: [ "argocd-server" ]
           args:
-            - --insecure # Enables HTTP mode
+            - --insecure            # Enables HTTP mode

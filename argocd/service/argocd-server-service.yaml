@@ -9,8 +9,8 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 80
-      targetPort: 8080 # Updated to target port 7070
+      port: 8088                # Externally accessible port
+      targetPort: 8080          # Internal container port if using HTTP
   selector:
     app.kubernetes.io/name: argocd-server
-  type: LoadBalancer           # or NodePort if you prefer
+  type: LoadBalancer          # or NodePort if you prefer
