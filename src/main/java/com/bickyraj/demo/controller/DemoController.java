@@ -9,7 +9,7 @@ public class DemoController {
     @RequestMapping("")
     @ResponseBody
     public String index() {
-        return "Welcome";
+        return "Welcome to stock market";
     }
     @RequestMapping("/hello")
     @ResponseBody
