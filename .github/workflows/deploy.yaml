@@ -51,10 +51,12 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Update Kubernetes manifests
         run: |
-          sed -i 's|image: bickyraj/demo-java-app:.*|image: bickyraj/demo-java-app:${{ github.sha }}|' argocd/deployment/demo-java-app-deployment.yaml
+          sed -i 's|image: bickyraj/demo-java-app:PLACEHOLDER|image: bickyraj/demo-java-app:${{ github.sha }}|' argocd/deployment/demo-java-app-deployment.yaml
           git config --global user.email "bickyrajkayastha@gmail.com"
           git config --global user.name "bickyraj"
           git add argocd/deployment/demo-java-app-deployment.yaml
