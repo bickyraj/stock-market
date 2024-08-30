@@ -43,7 +43,7 @@ jobs:
       - name: Build and Push Docker image
         run: |
           docker build -t bickyraj/demo-java-app:${{ github.sha }} .
-          docker push bickyraj/java-app:${{ github.sha }}
+          docker push bickyraj/demo-java-app:${{ github.sha }}
 
   deploy:
     needs: build
