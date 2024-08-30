@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: demo-java-app
-          image: bickyraj/demo-java-app:PLACEHOLDER
+          image: bickyraj/demo-java-app:a4b94202b62778f1aad149da3d4d71afdb51996d
           ports:
             - containerPort: 3030
           env:
