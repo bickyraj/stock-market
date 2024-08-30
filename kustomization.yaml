@@ -1,3 +1,0 @@
-resources:
-  - demo-java-app-deployment.yaml
-  - demo-java-app-service.yaml
