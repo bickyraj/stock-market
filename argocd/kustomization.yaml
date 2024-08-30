@@ -1,6 +1,4 @@
 resources:
-  - deployment/demo-java-app-deployment.yaml
-  - service/demo-java-app-service.yaml
   - deployment/argocd-server-deploy.yaml
   - service/argocd-server-service.yaml
   - argocd-clusterrole.yaml
