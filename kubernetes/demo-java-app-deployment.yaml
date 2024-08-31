@@ -36,3 +36,15 @@ spec:
               value: "http://host.docker.internal:9090"
             - name: GRAFANA_ENDPOINT
               value: "http://host.docker.internal:3000"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+              subPath: application-prod.properties
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: production-config
+            items:
+              - key: application-prod.properties
+                path: application-prod.properties
