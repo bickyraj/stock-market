@@ -38,7 +38,7 @@ spec:
               value: "http://host.docker.internal:3000"
           volumeMounts:
             - name: config-volume
-              mountPath: /config
+              mountPath: /config/application-prod.properties
               subPath: application-prod.properties
               readOnly: true
       volumes:
