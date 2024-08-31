@@ -34,3 +34,4 @@ data:
 kind: ConfigMap
 metadata:
   name: production-config
+  namespace: argocd

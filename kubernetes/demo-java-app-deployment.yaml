@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-java-app
+  namespace: argocd
   annotations:
     kubernetes.io/change-cause: "Force update $(date)"
 spec:
