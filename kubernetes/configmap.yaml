@@ -32,6 +32,7 @@ data:
     management.endpoints.web.exposure.include=*
     management.endpoint.prometheus.enabled=true
 
+
     spring.security.oauth2.client.registration.keycloak.client-id=stock-market
     spring.security.oauth2.client.registration.keycloak.client-secret=DjrjDDhEfrkgOHjgXew9eRb5hbPYD3Kq
     spring.security.oauth2.client.registration.keycloak.authorization-grant-type=authorization_code
