@@ -55,7 +55,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.keycloak:keycloak-spring-boot-starter:20.0.2'  // Use the latest version
+	implementation 'org.keycloak:keycloak-spring-boot-starter:20.0.2'
+	implementation 'org.keycloak:keycloak-admin-client:20.0.1' // Use the latest version
 	implementation 'org.springframework.security:spring-security-oauth2-client'
 	implementation 'org.springframework.security:spring-security-oauth2-resource-server'
 	implementation 'org.springframework.security:spring-security-oauth2-jose'

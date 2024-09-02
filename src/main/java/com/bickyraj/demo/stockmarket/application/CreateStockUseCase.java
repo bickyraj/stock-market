@@ -10,6 +10,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -39,6 +42,10 @@ public class CreateStockUseCase {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if (authentication != null && authentication.getPrincipal() instanceof Jwt jwt) {
+                String email = jwt.getClaim("email");
+            }
             String message = objectMapper.writeValueAsString(request.stockMarketEntity);
             rabbitMQSender.sendMessage(message);
         } catch (JacksonException e) {

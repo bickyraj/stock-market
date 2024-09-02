@@ -28,7 +28,7 @@ public class RabbitMQConfig {
 
     @Bean
     public ConnectionFactory connectionFactory() {
-        return new CachingConnectionFactory("host.docker.internal", 5672);
+        return new CachingConnectionFactory("localhost", 5672);
     }
 
     @Bean
